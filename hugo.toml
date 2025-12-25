@@ -14,6 +14,8 @@ summaryLength = 10
   # DoIt theme version
   version = "0.2.X"
 
+  favicon = "/icons/favicon.png"	
+
   # Header config
   [params.header]
     # desktop header mode ["fixed", "normal", "auto"]
