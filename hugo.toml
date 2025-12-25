@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 # [en, zh-cn, fr, ...] determines default content language
-defaultContentLanguage = "pt-br"
+defaultContentLanguage = "en"
 # language code
 languageCode = "pt-br"
 title = "Gamma Writings"
@@ -8,9 +8,31 @@ title = "Gamma Writings"
 # Change the default theme to be use when building the site with Hugo
 theme = "DoIt"
 
+summaryLength = 10
+
 [params]
   # DoIt theme version
   version = "0.2.X"
+
+  # Header config
+  [params.header]
+    # desktop header mode ["fixed", "normal", "auto"]
+    desktopMode = "fixed"
+    # mobile header mode ["fixed", "normal", "auto"]
+    mobileMode = "auto"
+    # LoveIt NEW | 0.2.0 Header title config
+    [params.header.title]
+      # URL of the LOGO
+      logo = "/icons/favicon.png"
+      # title name
+      name = "Gamma Writings"
+      # you can add extra information before the name (HTML format is supported), such as icons
+      pre = ""
+      # you can add extra information after the name (HTML format is supported), such as icons
+      post = ""
+      # LoveIt NEW | 0.2.5 whether to use typeit animation for title name
+      typeit = false
+
 
 [menu]
   [[menu.main]]
@@ -33,6 +55,10 @@ theme = "DoIt"
     title = ""
     weight = 2
   [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
     identifier = "categories"
     pre = ""
     post = ""
@@ -41,9 +67,168 @@ theme = "DoIt"
     title = ""
     weight = 3
 
+# Author config
+    [params.author]
+      name = "Paulo César F. Gama"
+      email = "pcfggama@gmail.com"
+      link = ""
+
+# Social config about the author
+
+    [params.social]
+      GitHub = "paulocesar-fg/"
+
+  [params.search]
+      enable = true
+      # type of search engine ["lunr", "algolia"]
+      type = "lunr"
+      # max index length of the chunked content
+      contentLength = 1000
+      # placeholder of the search bar
+      placeholder = "search"
+      # LoveIt NEW | 0.2.1 max number of results length
+      maxResultLength = 10
+      # LoveIt NEW | 0.2.3 snippet length of the result
+      snippetLength = 20
+      # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
+      highlightTag = "em"
+      # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+      absoluteURL = false
+      [params.search.algolia]
+        index = ""
+        appID = ""
+        searchKey = ""
+
+    [params.app]
+      # optional site title override for the app when added to an iOS home screen or Android launcher
+      title = "My cool site"
+      # whether to omit favicon resource links
+      noFavicon = false
+      # modern SVG favicon to use in place of older style .png and .ico files
+      svgFavicon = "/icons/favicon.svg"
+      # Android browser theme color
+      themeColor = "#ffffff"
+      # Safari mask icon color
+      iconColor = "#5bbad5"
+      # Windows v8-10 tile color
+      tileColor = "#da532c"
+
+  [page]
+    [page.math]
+      enable = true
+      blockLeftDelimiter = '\['
+      blockRightDelimiter = '\]'
+      inlineLeftDelimiter = '\('
+      inlineRightDelimiter = '\)'
+      copyTex = true
+      mhchem = true
+
+
+    [params.page]
+        [params.page.share]
+          enable = true
+          X = true # LoveIt NEW | 0.3.1
+          Twitter = false # LoveIt DEPRECATED | 0.3.1
+          Threads = false # LoveIt NEW | 0.3.1
+          Facebook = false
+          Linkedin = true
+          Whatsapp = false
+          Pinterest = false
+          Tumblr = false
+          HackerNews = false
+          Reddit = false
+          VK = false
+          Buffer = false
+          Xing = false
+          Line = false
+          Instapaper = false
+          Pocket = false
+          Flipboard = false
+          Weibo = false
+          Blogger = false
+          Baidu = false
+          Odnoklassniki = false
+          Evernote = false
+          Skype = false
+          Trello = false
+          Diaspora = true # LoveIt NEW | 0.3.1
+          Mix = false
+          Telegram = false
+          
+  [params.home]
+    # DoIt NEW | 0.2.0 amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      # Place your avatar file under static or assets directory
+      # The filepath is relative to the static or assets directory
+      avatarURL = "/icons/favicon.png"
+      # URL the avatar links to
+      avatarLinkURL = ""
+      # DoIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
+      title = "Gamma Writings"
+      # subtitle shown in home page
+      subtitle = " Exploring computation, math, and geek culture."
+      # whether to use typeit animation for subtitle
+      typeit = true
+      # whether to show social links
+      social = true
+      # DoIt NEW | 0.2.0 disclaimer (HTML format is supported)
+      disclaimer = ""
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+      # DoIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
+      # default behavior when you don't set "hiddenFromHomePage" in front matter
+      defaultHiddenFromHomePage = false
+
+ [params.footer]
+    enable = true
+    # DoIt NEW | 0.2.0 Custom content (HTML format is supported)
+    custom = ''
+    # DoIt NEW | 0.2.0 whether to show Hugo and theme info
+    hugo = false
+    # DoIt NEW | 0.2.14 Hosted on (HTML format is supported)
+    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+    hostedOn = ''
+    # DoIt NEW | 0.2.0 whether to show copyright info
+    copyright = true
+    # DoIt NEW | 0.2.0 whether to show the author
+    author = true
+    # Site creation time
+    since = 2025
+    # ICP info only in China (HTML format is supported)
+    icp = ""
+    # license info (HTML format is supported)
+    license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+
+
 # Markup related configuration in Hugo
 [markup]
+  [params.page.toc]
+    enable = true
+    keepStatic = false
+    auto = true
+
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]']]
+          inline = [['\(', '\)']]
+
