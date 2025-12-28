@@ -1,5 +1,5 @@
 ---
-title: "Version Control Systems(VCS) - Panorama geral"
+title: "Entendendo o Git"
 date: 2025-12-25T19:53:20-0300
 draft: false
 description: "Descrição do post aqui"
@@ -9,8 +9,10 @@ categories: [computation]
 
 Olá caro leitor(a), Meu nome é Paulo César e sou o criador deste blog. 
 
+Neste post, quero falar sobre controle de versionamento, com foco em Git. Recentemente, tenho estudado sobre o assunto e precisava dar um "dump",sendo esse é justamente o objetivo deste post.
 
-Neste post, quero falar sobre Sistemas de controle de versionamento. Recentemente tenho estudo o assunto e precisava dar um "dump". Além disso, quero ressaltar que vou fazer um panorama geral sobre os VCS, e que vou me aprofundar na história do Git, pois atualmente é ferramenta de versionamento que mais venho utilizando.
+Além disso, desde o início, quero deixar claro que este texto **NÃO** É UM TUTORIAL DE GIT. A internet está cheia de conteúdo sobre Git, inclusive você pode ler a [documentação oficial ](https://git-scm.com/docs/git), ou ler o livro [ProGit](https://git-scm.com/book/en/v2) disponível gratuitamente no site oficial do Git.
+
 
 Dito isso, vamos ao conteúdo.
 
@@ -19,21 +21,102 @@ Dito isso, vamos ao conteúdo.
 
 Inicialmente, quero contextualizar o assunto trazendo um exemplo que, creio eu, quase todo desenvolvedor iniciante já passou. 
 
-Você tem uma ideia de projeto novo e começa a codar, adicionando funcionalidade atrás de funcionalidade. Até que, por muito azar, você altera algumas linhas de código, ou exclui um arquivo, e quando você menos percebe seu projeto simplesmente quebra. Depois disso, você pensa "Puts! Se eu pudesse retorna à versão anterior...". 
+Você tem uma ideia de projeto novo e começa a codar, adicionando funcionalidade atrás de funcionalidade. Até que, por muito azar, você altera algumas linhas de código, ou exclui um arquivo, e quando você percebe seu projeto simplesmente quebra. Depois disso, você pensa "Puts! Se eu pudesse retorna à versão anterior...". 
 
-A partir desse dia, você pensa em uma possível solução "Ok. Assim que eu salvar o arquivo, vou copiar o projeto para outro diretório, então , caso o projeto quebre, ainda terei a versão anterior". 
+A partir desse dia, você pensa "Ok. Assim que eu salvar o arquivo, vou copiar o projeto para outro diretório,e, portanto, caso o projeto quebre, ainda terei a versão anterior". 
 
-Essa solução seria uma espécie de *Local Version Control System*( Conceito que será posteriormente explicado ). No início pode até funcionar, porém, se o projeto crescer, você terá um grande amontoado de arquivos duplicados, possivelmente mal organizados e ocupando um espaço desnecessário em disco. 
+Essa solução seria uma espécie de *Local Version Control System*( Conceito que será posteriormente explicado ). No início pode até funcionar, porém, se o projeto crescer, você terá um grande amontoado de arquivos duplicados, possivelmente mal organizados e ocupando muito espaço em disco. 
 
 Se mesmo nos dias atuais, tendo a disponibilidade de terasbyte de armazenamento, essa solução é inviável. Agora, imagine há 45 anos atrás, no início do anos 80, quando os computadores como, por exemplo, o TK-90 dispunham de apenas 16kb, ou, no melhor dos casos, de 48kb.
 
 Além disso, desenvolvemos softwares em equipes, pense no quão desastroso seria fazer isso em um sistema desses. 
 
-Esses são apenas alguns dos muitos problemas que um mal gerenciamento de versões pode trazer. Então,  creio que tenha ficado claro que o controle de versionamento é algo fundamental no desenvolvimento de software. Entretando, fazer isso pode não ser  uma tarefa fácil. Dessa forma, surgiram os *Version Control Systems*, ou em português, *Sistemas de Controle de versionamento.* 
+Esses são apenas alguns dos muitos problemas que um mal gerenciamento de versões pode trazer. Então,  creio que tenho ficado claro que o controle de versionamento é algo fundamental no desenvolvimento de software. Entretando, fazer isso não é uma tarefa fácil. Dessa forma, surgiram os *Version Control Systems*, ou em português, *Sistemas de Controle de versionamento.* 
 
 Assim como o próprio nome sugere, os Version Control Systems( VCSs ) são ferramentas desenvolvidas para ajudar no gerenciamento das alterações do projeto ao longo do tempo. 
 
-## História e evolução dos VCSs
+## Uma Breve história dos VCSs
 
+Eu sempre gosto de iniciar meus estudos com a história das coisas. Saber como tudo começou, evoluiu, até finalmente chegar nos nossos dias atuais. E talvez, daqui alguns anos, as ferramentas usadas hoje sejam apenas mais um fragmento da história dos VCS. 
+
+No período em que os computadores eram programados por meio de cartões perfurados. O " controle de versão" era, em essência, um controle de confiruação físico. Cada versão seria uma pilha fíwsica com diferentes cartões(deck). Os repositórios daquela epóca muito provalvelmente eram grandes armários. Cada versão uma gaveta. 
+
+Se hoje, um merge mal feito pode gerar uma enorme dor de cabeça, imagine pensar em fazer algo similar nessa epóca. Não seria uma dor de cabeça, mas sim uma verdadeira catástrofe operacional.
+
+Depois de um tempo, a programação por cartões perfurados foi substituídos por textos. Diante disso, em 1972, surgiu o ***Source Code Control System***(SCCS),desenvolvido nos **Bell Labs** por **Marc Rochkind**.
+
+O SCCS não guardava cópias completas de cada versão, ao invés disso ele guardava apenas as diferenças(deltas) entre versões, e depois usava Foward Deltas( deltas progressiovos ) para montar o checkout. Isso realmente era algo revolucionário para a época.
+
+Nos anos 80, surgiu o **Revision Control System(RCS)**, desenvolvido por **Walter F. Tichy** como o sucessor do SCCS. Diferentemente de seu antecedente, o RCSutilizava **Reverse Delta** ao invés de Forward Deltas( utilizados pelo SCCS). Essa implentação tornava o checkout da cópia recente mais simples e rápido. Também era mais simples fazer commit.
+
+O RCS organizava as revisões na chamada *ancestral tree*( árvore ancestral ), onde a primeira revisão era a raiz da árvore.
+
+Ele também contava com os sistemas de *Branching* e de *merge*. no entanto, eles usavam *forward deltas* e, portanto,  alcançar a "ponta" dos branches poderia ser penoso. 
+
+A principal falha desses VCSs citados, era que eles operavam apenas em arquivos únicos, sendo incapazes de lidar com projetos compostos por múltiplos arquivos.
+
+Depois de um tempo, Dick Grune desenvolveu o **Concurrent Versions System(CVS)**, como shell scripts do Unix baseados no RCS. Grune desenvolveu o sistema para trabalhar colaborativamente com seus alunos no desenvolvimento de um compilador C chamado ACK. 
+
+Uma das vantagens do CVS era o fato de permitir que os usuários tratassem um conjunto completo de dados como se fossem um único arquivo, tornando os comandos do sistema mais simples para projetos com multíplos arquivos. 
+
+Além disso, o CVS introduziu o uso remoto, fornecendo um modelo client/server que permitia a formação de equipes compostas por desenvolvedores em locais remotos. Por isso, classica-se o CVS de  **Centralized Version Control System(CVCS)**, uma vez que o histórico de versões do projeto era armazenado em um **servidor central**, enquanto os usuários em sua cópia local. 
+
+Todavia, isso tornou certas operações dependentes da disponibilidade da rede e do servidor. Signinifica então que, caso o servidor ficasse inativo por certo tempo e,assim,  até que o problema fosse revolvido, nenhum desenvolvedor seria capaz de trabalhar no versionamento do projeto.
+
+O CVS marcou a década de 90, e com o passar do tempo foram surgindo outros VCSs baseados no CVS, como o CVSNT, EVS, Open CVS e Subversion. 
+
+O Subversion, em especial, ganhou força e tornou-se popular no início dos anos 2000. O SVN( Subversion ) foi desenvolvido pela CollabNet com o fabuloso slogan "CVS melhorado". E realmente ele era menos pior, facilitou alguns processos e lidou com muitos dos problemas de seu antecessor.
+
+Fugindo dos modelos CVCSs(Centered Version Control Systems), começaram a surgir VCS de modelo distribuídos, chamados de **Distribued Version Control Systems***(DVCS). Diversos softwares surgiram como o Darcs, BitKeeper, Mercurial, Bazaar, Monotone e ,sobretudo, o Git(nosso principal assunto). 
+
+Os DVCSs resolviam muitos dos problemas que assolavam os CVCSs. Nos DVCSs  o repositório inteiro no computador local do usuário, tornando-os mais adequados oara grandes projetos com mais desenvoldores independentes, sendo essencial para a comunidade Open-Souce. Isso também tornava os DVCSs menos dependentes de rede. Enquanto nos CVCSs as alterções eram rastreadas em versão somente quando são enviadas( committed ) ao servidor, nos DVCSs eles podem ser rastreadas localmente, permitindo o versionamento de "rascunhos" sem precisar serem publicados para outros.
+
+## Uma breve história do Git
+
+No tópico anterior, descrevi um panorama geral da história dos Sistemas de Controle de Versão. Neste tópico, descreverei de forma resumida os fatos que culminaram na criação do Git.
+
+Antes de entrarmos na história do Git, devemos primeiro entender como funcionava o versionamento do desenvolvimento do Kernel do Linux. 
+
+Durantes os primeiros anos da manutenção do Kernel Linux(1991-2002), as alterações no software eram compartilhadas por meio de *patches* e *tarballs*. Esses dois conceitos são muito importantes para a computação, por isso farei uma breve tangente.
+ 
+Como já foi falado anteriormente, duplicar o arquivo antes de alterá-lo é super ineficiente, não só porque vai desperdiçar seu espaço em disco, mas também porque vai sujar o seu diretório com arquivos desnecessários. Por isso, surgiu até hoje duas ferramentas de Unix, que existem até hoje nos Linux. 
+
+A primeira ferramenta é o Diff, e serve para retirar a diferença entre dois arquivos. O algoritmo por trás disso é muito interessante e vale um estudo a parte. 
+
+Para ilustrar melhor, irei fazer uma pequena demonstração. Primeiramente, vou criar dois arquivos diferentes. 
+
+```file1.txt
+Limão
+Batata
+Banana
+Melancia
+Laranja
+Ameixa
+```
+
+```file2.txt 
+Goaiaba
+Batata
+Banana
+Laranja
+Morango
+``` 
+
+Usamos o comando diff e redirecionamos o output para o arquivo `patch.txt`.
+
+```bash
+ diff file1.md file2.md > patch.txt 
+ ``` 
+
+Lendo o patch com `cat patch.txt`, o output será esse:
+
+```patch.txt
+1d0
+< Limão
+4d2
+< Melancia
+6d3
+< Ameixa
+```
 
 
