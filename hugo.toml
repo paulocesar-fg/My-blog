@@ -1,9 +1,9 @@
 baseURL = "http://example.org/"
 # [en, zh-cn, fr, ...] determines default content language
-defaultContentLanguage = "en"
+defaultContentLanguage = "pt-br"
 # language code
-languageCode = "pt-br"
-title = "Gamma Writings"
+locale = "pt-BR"
+title = "Paulo Gamma"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "DoIt"
@@ -16,6 +16,11 @@ summaryLength = 10
 
   favicon = "/icons/favicon.png"	
 
+  customCSS = ["css/custom.css"]
+
+  [params.lightgallery]
+	enable = true
+
   # Header config
   [params.header]
     # desktop header mode ["fixed", "normal", "auto"]
@@ -27,7 +32,7 @@ summaryLength = 10
       # URL of the LOGO
       logo = "/icons/favicon.png"
       # title name
-      name = "Gamma Writings"
+      name = "Paulo Gamma"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -116,6 +121,9 @@ summaryLength = 10
       tileColor = "#da532c"
 
   [page]
+
+    lightgallery = false    
+
     [page.math]
       enable = true
       blockLeftDelimiter = '\['
@@ -134,7 +142,7 @@ summaryLength = 10
           Threads = false # LoveIt NEW | 0.3.1
           Facebook = false
           Linkedin = true
-          Whatsapp = false
+          Whatsapp = true
           Pinterest = false
           Tumblr = false
           HackerNews = false
@@ -155,7 +163,7 @@ summaryLength = 10
           Trello = false
           Diaspora = true # LoveIt NEW | 0.3.1
           Mix = false
-          Telegram = false
+          Telegram = true
           
   [params.home]
     # DoIt NEW | 0.2.0 amount of RSS pages
@@ -172,7 +180,7 @@ summaryLength = 10
       # URL the avatar links to
       avatarLinkURL = ""
       # DoIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
-      title = "Gamma Writings"
+      title = "Paulo Gamma"
       # subtitle shown in home page
       subtitle = " Exploring computation, math, and geek culture."
       # whether to use typeit animation for subtitle
