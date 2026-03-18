@@ -5,6 +5,11 @@ draft: false
 description: "Descrição do post aqui"
 tags: [computation, git]
 categories: [computation]
+
+lightgallery: true
+
+featuredImage: "/images/2025/12/25/introducao-a-version-control-systems/Version-control-system-cover.png"
+
 ---
 
 Olá caro leitor(a), Meu nome é Paulo César e sou o criador deste blog. 
