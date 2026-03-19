@@ -1,7 +1,7 @@
 ---
 title: "Introdução a Version Control System(VCS)"
 date: 2025-12-25T19:53:20-0300
-draft: false
+draft: true
 description: "Descrição do post aqui"
 tags: [computation, git]
 categories: [computation]
@@ -53,7 +53,7 @@ O SCCS não guardava cópias completas de cada versão, ao invés disso ele guar
 
 Mais tarde, nos anos 80, surgiu o **Revision Control System(RCS)**, desenvolvido por **Walter F. Tichy** como o sucessor do SCCS. Diferentemente de seu antecessor, o RCS utilizava **Reverse Delta** ao invés de Forward Deltas( utilizados pelo SCCS). Essa implentação tornava o checkout da cópia recente mais simples e rápido, como também simplificava o processo de fazer commits.
 
-O RCS organizava as revisões na chamada *ancestral tree*( árvore ancestral ), onde a primeira revisão era a raiz da árvore.
+O RCS organizav'a as revisões na chamada *ancestral tree*( árvore ancestral ), onde a primeira revisão era a raiz da árvore.
 
 Ele também contava com os sistemas de *branching* e de *merge*. No entanto, como ele usava *forward deltas* ,às vezes  alcançar a "ponta" dos branches poderia ser penoso. 
 
