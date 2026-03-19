@@ -184,50 +184,16 @@ No futuro prentendo escrever um artigo sobre essa ferramenta.
 
 Há várias formas de instalar o **asdf**, você pode vê-las no [site oficial da ferramenta](https://asdf-vm.com/).
 
-No meu caso, vou instalar o asdf utilizando o **GO**. Por isso, precisamos primeiramente ter o Go instalado.
-
-Primeiramente, devemos fazer download do binário de instalação do GO. Sendo assim, acesse https://go.dev/doc/install.
-
-Segundo o site oficial, antes de extrair o arquivo baixado, deve-se remover qualquer outra instalação prévia do GO. Então execute:
-
-```zsh 
-rm -rf /usr/local/go 
-```
-
-Após isso, podemos extrair o arquivo baixado, salvando-o no diretório `/usr/local`.
+No meu caso vou fazer a instalação pelo binário pré-compilado. Primeiro, faça o download do arquivo pré compilado, ele virá em .tar.gz. Vamos descompactá-lo e movê-lo para o diretório `/usr/local/bin`, executando:
 
 ```zsh
-tar -C /usr/local -xzf go1.26.1.linux-amd64.tar.gz
+tar -C /usr/local/bin -xzf asdf-v0.18.1-linux-amd64.tar.gz
 ```
 
-Agora precisamos adicionar o diretórios dos binários do Go ao *PATH*, abra o arquivo `.zshrc` com seu editor de código. Se estiver utiliando nvim faça:
-
-```zsh 
-nvim ~/.zshrc
-```
-
-E nas últimas linha do arquivo adicione:
+Abra o `~/.zshrc` com seu editor de código e adicione na última linha:
 
 ```.zshrc
-export PATH=$PATH:/usr/local/go/bin
-```
-
-Agora verifique a instalação do Go executando o seguinte comando:
-
-```zsh
-go version
-```
-Se o output for a versão do GO instalada, então a instalação foi bem sucedida.
-
-Após instalar o GO, execute o seguinte comando para instalar o ASDF:
-
-```zsh
-go install github.com/asdf-vm/asdf/cmd/asdf@latest
-```
-
-Abra novamente o arquivo `~/.zshrc` com seu editor de código e adicione na última linha:
-
-```.zshrc
+export PATH=$PATH:/usr/local/bin
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 ```
 
@@ -236,3 +202,43 @@ Salve e reinicie seu terminal. Para confirmar a instalação do asdf execute:
 ```zsh
 asdf version
 ```
+
+### Instalando o Docker 
+
+Para instalar o Docker no WSL é bem simples, mas primeiro é necessário instalar o Docker Desktop no Windows. 
+
+Primeiro acesse o [site oficial do docker](https://www.docker.com/) e faça download do executável e em seguida o execute. Instale o Docker desktop normalmente, ao fim da instalação sua máquina vai reiniciar. 
+
+Espere o Docker desktop iniciar e faça seu login. 
+
+Agora no WSL vamos fazer a instalação do Docker.
+
+Antes de instalar o Docker pela primeira vez, precisamos configurar o repositório APT do Docker. 
+
+Para fazer isso o comando é um tanto grande:
+
+```zsh
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+Após isso, instale os pacotes do Docker executando:
+
+```zsh
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Agora que o Docker está instalado, abra o docker desktop instalado no Windows e vá em `Settings > Resources > Wsl Integration`, e no habilite a integração com o Ubuntu. 
