@@ -135,6 +135,10 @@ summaryLength = 10
 
 
     [params.page]
+        [params.page.code]
+          copy = true
+          maxShownLines = 20
+
         [params.page.share]
           enable = true
           X = true # LoveIt NEW | 0.3.1
@@ -231,6 +235,10 @@ summaryLength = 10
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+    codeFences = true
+    guessSintax = true
+    lineNos = true
+    style = "dracula"
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 6
