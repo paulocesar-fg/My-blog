@@ -32,6 +32,11 @@ draft: false
 description: "Descrição do post aqui"
 tags: []
 categories: []
+
+featuredImage: ""
+lightgallery: true
+
+
 ---
 
 Conteúdo do post aqui...
