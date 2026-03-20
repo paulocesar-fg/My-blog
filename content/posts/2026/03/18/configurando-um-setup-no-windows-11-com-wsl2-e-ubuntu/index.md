@@ -73,13 +73,17 @@ Antes de começar a usar o WSL, resolvi deixar meu Windows Terminal mais bonito,
 
 No browser acessei o site [Windows Terminal Themes](https://windowsterminalthemes.dev/), e após dar uma boa olhada nos temas disponíveis, escolhi o tema **tokyonight**. 
 
+{{< image caption="Windows Terminal Themes" src="images/windows-terminal-theme.webp">}}
+
 Depois de escolher o tema basta clicar no botão `Get Theme` que copiará um JSON. Voltando ao terminal do wsl, pressione novamente `CTRL + ,` para entrar nas configurações e, no canto esquerdo da tela, clique em `Open JSON File`. Pode abrir no Notepad mesmo.
 
 Desça até encontrar "schemes" e, dentro dos colchetes, cole o JSON copiado.
 
-[imagem vai aqui]
+{{< image caption="Colando o JSON" src="images/wt-json-theme.webp">}}
 
 Depois volte ao terminal WSL e abra as configurações novamente. Selecione `Ubuntu`, depois vá em `Appearance` e em `color scheme` selecione o seu tema. No meu caso, selecionei `tokyo night`.
+
+{{< image caption="Selecionando o tema" src="images/change-scheme.webp" >}}
 
 ### Instalando um editor de código
 
@@ -249,3 +253,9 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ```
 
 Agora que o Docker está instalado, abra o Docker Desktop no Windows e vá em `Settings > Resources > WSL Integration`, e habilite a integração com o Ubuntu.
+
+{{< image src="images/docker-desktop-wsl-integration.webp" caption="Integrando o Docker Desktop com WSL">}}
+
+### Conclusão 
+
+Depois de umas boas horas configurando esse setup, creio que cheguei em um ponto onde configurei uma distro linux utilizável. É claro que posteriormente irei fazer novas configurações, mas a base desse setup foi montada.
