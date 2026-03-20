@@ -5,6 +5,8 @@ draft: false
 description: "Descrição do post aqui"
 tags: ["set-theory", "precalculus"]
 categories: [mathematics]
+
+lightgallery: true
 ---
 
 Nesse post, tratarei os conteúdos introdutórios da *teoria dos conjuntos*. 
@@ -87,7 +89,7 @@ Um diagrama de Venn é uma representação visual que usa círculos sobrepostos 
 
 Os conjuntos são representados por regiões planas interiores a uma curva fechada não entrelaçada.
 
-![Diagrama de Venn](/images/2025/11/04/introducao-a-logica-matematica-pt-ii/diagrama-de-venn.png)
+{{< image caption="Diagrama de Venn" src="images/diagrama-de-venn.png" >}} 
 
 ---
 
