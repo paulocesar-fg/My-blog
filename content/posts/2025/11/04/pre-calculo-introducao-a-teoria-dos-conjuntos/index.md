@@ -6,6 +6,8 @@ description: "Descrição do post aqui"
 tags: ["set-theory", "precalculus"]
 categories: [mathematics]
 
+featuredImage: "images/teoria-dos-conjuntos-cover.webp"
+
 lightgallery: true
 ---
 

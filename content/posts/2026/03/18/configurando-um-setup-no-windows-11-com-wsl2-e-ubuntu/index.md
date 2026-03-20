@@ -13,7 +13,7 @@ categories:
     - computation
 
 
-featuredImage: ""
+featuredImage: "images/wsl2-ubuntu-windows11-cover.webp"
 lightgallery: true
 
 

@@ -6,7 +6,7 @@ description: "Descrição do post aqui"
 tags: ["logic", "precalculus"]
 categories: [mathematics]
 
-featuredImage: ""
+featuredImage: "images/logica-matematica-cover.webp"
 
 ---
 
