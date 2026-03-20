@@ -1,13 +1,13 @@
 ---
-title: "Introdução à lógica matemática Parte.II"
+title: "Pré-cálculo: Introdução a teoria dos conjuntos"
 date: 2025-11-04T14:19:30-0300
 draft: false
 description: "Descrição do post aqui"
-tags: [math]
-categories: []
+tags: ["set-theory", "precalculus"]
+categories: [mathematics]
 ---
 
-Nesse post, tratarei os conteúdos introdutórios da *teoria dos conjuntos*. Vale lembrar que este texto é uma continuação do post [Introdução à lógica matemática parte I](/posts/2025/11/03/introdução-a-lógica-matemática-01).
+Nesse post, tratarei os conteúdos introdutórios da *teoria dos conjuntos*. 
 
 Para aqueles que querem uma abordagem mais rigorosa e completa, recomendo a leitura do capítulo II do livro *How to Prove It: A Structured Approach*, de Daniel J. Velleman.
 

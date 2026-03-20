@@ -237,7 +237,7 @@ summaryLength = 10
     noClasses = false
     codeFences = true
     guessSintax = true
-    lineNos = true
+    lineNos = false
     style = "dracula"
   [markup.tableOfContents]
     startLevel = 2

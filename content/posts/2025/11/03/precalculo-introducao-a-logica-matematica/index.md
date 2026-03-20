@@ -1,10 +1,13 @@
 ---
-title: "Introdução à lógica matemática - Parte. I"
+title: "Pré-cálculo: Introdução à lógica matemática"
 date: 2025-11-03T14:46:38-0300
 draft: false
 description: "Descrição do post aqui"
-tags: [math]
-categories: []
+tags: ["logic", "precalculus"]
+categories: [mathematics]
+
+featuredImage: ""
+
 ---
 
 

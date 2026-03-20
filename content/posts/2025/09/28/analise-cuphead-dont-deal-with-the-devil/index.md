@@ -2,12 +2,13 @@
 title: "[Análise] Cuphead: Don’t Deal With the Devil"
 date: 2025-09-28T21:25:35-0300
 draft: false
-description: "Descrição do post aqui"
+description: "Review completo do jogo Cuphead: Don't Deal WIth the Devil."
 tags: 
-  - games 
-  - off-topic
+  - Indie Game
+categories:
+  - games
 
-featuredImage: "/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/Cuphead_capa.png"
+featuredImage: "images/Cuphead_capa.png"
 lightgallery: true
 
 toc:
@@ -17,7 +18,6 @@ toc:
 Olá leitor(a) do Gamma Writings, quero nesse post expor as minhas experiências e opiniões sobre o jogo Cuphead: Don’t Deal With the Devil.
 
 Mas, primeiramente, quero reforçar que essas análises não seguem modelos pré-prontos, pois acho que isso tiraria a minha liberdade para escrever. Dito isso, vamos à análise.
-
 
 ## Contexto: Um jogo que marcou a minha infância
 
@@ -29,11 +29,11 @@ Meu primeiro "setup gamer" foi um **telefone Nokia**, daqueles de botão, inqueb
 
 Após isso, em 2014, meu pai me deu um **PlayStation 2**, foi lá que realmente comecei minha carreira gamer. Nesse tempo, conheci vários jogos, inclusive eu comprava vários DVDs piratas que continham os famosos 7.784 jogos de emuladores,foi lá que conheci grandes clássicos, indo de 8 bits a 16 bits.
 
-{{< image src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/colecao-7784-jogos.jpg" caption="Capa Coleção de 7784 jogos">}}
+{{< image src="images/colecao-7784-jogos.jpg" caption="Capa Coleção de 7784 jogos">}}
 
 Eu era uma criança que jogava tudo que via pela frente, até que um dia esbarrei em um jogo chamado **Metal Slug Anthology**. Era um Run & Gun frenético militar, e esse jogo em questão era uma coletânea que reunia o Metal Slug 1 ao 6 (e também o X).
 
-{{< image caption="Metal slug anthology" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/metal-slug-anthology-cover.jpg">}}
+{{< image caption="Metal slug anthology" src="images/metal-slug-anthology-cover.jpg">}}
 
 O jogo possuía uma **dificuldade absurda**; músicas incríveis; **chefes insanos** e muito originais. Resumindo: os jogos eram incríveis!
 
@@ -51,7 +51,7 @@ Cuphead é um jogo indie onde o protagonista Cuphead e seu irmão Mugman precisa
 
 ## O desenvolvimento de Cuphead
 
-{{< image caption="Desenvolvimento de Cuphead" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/desenvolvimento-de-cuphead.jpg" >}}
+{{< image caption="Desenvolvimento de Cuphead" src="images/desenvolvimento-de-cuphead.jpg" >}}
 
 O desenvolvimento de Cuphead foi um processo demorado. Os irmãos Chad e Jared Moldenhauer iniciaram o projeto em 2010. A ideia principal era criar um jogo que buscasse recriar o estilo das animações dos anos 30.
 
@@ -83,13 +83,13 @@ Além disso, a forma como o jogo apresenta a história é genial. Parece que est
 
 Esse é o ponto mais impressionante desse jogo. Sério, a ideia de criar artes inspiradas nas animações dos anos 30 foi um dos carros-chefe de Cuphead.
 
-{{< image caption="Exemplos de animações dos anos 30" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/animacoes-anos-30.jpg">}}
+{{< image caption="Exemplos de animações dos anos 30" src="images/animacoes-anos-30.jpg">}}
 
 Imagino a quantidade de esforço para criar as artes, ou melhor, as animações, já que elas precisam de um grande número de quadros.
 
 Como se já não bastasse todo esse esforço, **todos os quadros foram desenhados à mão**. Isso resultou em um estilo único de game art.
 
-{{< image caption="Processo de animação de Cuphead" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/processo-de-animacao.jpg" >}}
+{{< image caption="Processo de animação de Cuphead" src="images/processo-de-animacao.jpg" >}}
 
 As animações são bem fluídas e divertidas, fiéis ao estilo anos 30, onde os personagens pareciam constantemente estar dançando. 
 
@@ -117,7 +117,7 @@ Além das músicas e efeitos, o jogo também faz uso de algumas onomatopeias, mu
 
 Os efeitos sonoros são ótimos. Não existe sensação melhor do que escutar um "Knock Out" após várias tentativas fracassadas. 
 
-{{< image caption="Knockout" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/knockuot.jpg">}}
+{{< image caption="Knockout" src="images/knockuot.jpg">}}
 
 ## Gameplay
 
@@ -125,13 +125,13 @@ A gameplay é muito dinâmica. Cuphead mistura mecânicas clássicas de jogos de
 
 Para mim, a mecânica mais divertida é o parry. Nada é melhor que acertar aquele parry no poder do chefão. Ou melhor, reviver o seu amigo dando parry no fantasma dele. 
 
-{{< image caption="Parry" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/parry.jpg" >}}
+{{< image caption="Parry" src="images/parry.jpg" >}}
 
 Essas mecânicas só funcionam bem, pois as hitboxes do jogo são coerentes com as artes. Não me lembro de ter tomado dano sem colisão aparente.
 
 Além disso, o jogo fornece uma grande gama de armas, poderes e habilidades especiais. Isso é maravilhoso, pois abre um grande leque de possibilidades para a gameplay.
 
-{{< image src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/items.jpg" caption="Items" >}}
+{{< image src="images/items.jpg" caption="Items" >}}
 
 Ps: Compre o *Roundabout* o mais rápido possível, é de longe o melhor tiro do jogo, só que vai exigir um pouco mais de habilidade.
 
@@ -141,11 +141,11 @@ O jogo também conta com algumas fases onde usamos um avião, isso ajuda a quebr
 
 Ps: O ataque especial do avião possui uma das melhores onomatopeias do jogo: **BOOOOMMM!!**
 
-{{< image caption="BOOOM" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/boom.jpg" >}}
+{{< image caption="BOOOM" src="images/boom.jpg" >}}
 
 ## Dificuldade
 
-{{< image caption="Rage quit" src="/images/2025/09/28/analise-cuphead-dont-deal-with-the-devil/rage.jpg" >}}
+{{< image caption="Rage quit" src="images/rage.jpg" >}}
 
 Cuphead pode frustrar muitos jogadores, principalmente aqueles mais casuais, uma vez que definitivamente não é um jogo fácil.
 
