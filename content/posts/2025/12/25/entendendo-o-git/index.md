@@ -3,7 +3,7 @@ title: "Introdução a Version Control System(VCS)"
 date: 2025-12-25T19:53:20-0300
 draft: true
 description: "Descrição do post aqui"
-tags: [computation, git]
+tags: [vcs, git]
 categories: [computation]
 
 lightgallery: true
@@ -113,12 +113,24 @@ Usamos o comando diff e redirecionamos o output para o arquivo `patch.txt`.
 Lendo o patch com `cat patch.txt`, o output será esse:
 
 ```patch.txt
-1d0
+1c1
 < Limão
-4d2
+---
+> Goaiaba
+4d3
 < Melancia
-6d3
+6c5
 < Ameixa
+---
+> Morango
+
 ```
 
+O arquivo `patch.txt` guarda as alterações em relação ao conteúdo dos arquivos `file1.txt` e `file2.txt`. Para aplicar essas alterações basta utilizar o comando `patch` seguido do arquivo que queremos aplicar e pelo arquivo que guarda todas as alterações( O patch). 
+
+```bash
+patch file1.txt patch.txt
+```
+
+Agora, se você fizer um `cat` no arquivo `file1.txt`, pereceberá que ele está idêntico ao arquivo `file2.txt`. 
 
