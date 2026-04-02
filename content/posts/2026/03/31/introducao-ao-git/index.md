@@ -1,7 +1,7 @@
 ---
 title: "Introdução ao Git"
 date: 2026-03-31T07:11:48-0300
-draft: true
+draft: false
 description: "Entendendo o básico de git."
 tags: [git]
 categories: [Computation]
@@ -236,6 +236,15 @@ Algumas obserções:
 3. Expressões regulares simples usadas em ambiente shell, como *, [], ? podem ser utilizadas.
 
 ## Ramificações
+Praticamente todos os VCSs possuem alguma forma de suporte a ramificações(Branches). As Branches possibilitam trabalhar no projeto sem alterar a linha principal.
+
+Alguns VCSs vaziam isso de formas terríveis, alguns exigem que façamos uma nova cópia do código-fonte , o que pode ser horrível em projetos grandes.
+
+Por sorte, o modelo de ramificações do Git é um "recurso matador" e certamente diferencia o git em relação a seus concorrentes. 
+
+Como dito anteriormente o Git salva suas alterações como uma série de deltas(diferenças), mas sim como uma série de  *snapshots*.
+
+Quando fazemos `git commit` o Git armazena um objeto de commit que possui um ponteiro para o snapshot do conteúdo que estava no Index. Este objeto contém o nome do autor, e-maili, e a mensação de commit
 
 ## Repositório remoto e a diferença de Git e Github
 
