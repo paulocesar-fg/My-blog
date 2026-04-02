@@ -65,6 +65,8 @@ Uma vantagem do CVS era permitir que os usuários tratassem um conjunto completo
 
 Além disso, o CVS introduziu o acesso remoto, fornecendo um modelo client/server que permitia a formação de equipes compostas por desenvolvedores em locais remotos. Por isso, classifica-se o CVS como **Centralized Version Control System** (CVCS), uma vez que o histórico de versões do projeto era armazenado em um **servidor central**, enquanto os usuários trabalhavam localmente em cópias locais. 
 
+{{< image src="/images/CVCS.webp" caption="CVCS">}}
+
 Todavia, isso tornou certas operações dependentes da disponibilidade da rede. Significa que, caso o servidor ficasse inativo, nenhum desenvolvedor seria capaz de trabalhar no versionamento do projeto até que o problema fosse resolvido.
 
 O CVS marcou a década de 90, e com o passar do tempo surgiram outros VCSs baseados no CVS, como CVSNT, EVS, Open CVS e Subversion. Este último, em especial, ganhou força e se tornou popular no início dos anos 2000. O SVN (Subversion) foi desenvolvido pela CollabNet com o slogan "CVS melhorado" e realmente resolvia muitos dos problemas de seu predecessor.
@@ -72,6 +74,8 @@ O CVS marcou a década de 90, e com o passar do tempo surgiram outros VCSs basea
 Fugindo dos modelos CVCSs (Centralized Version Control Systems), começaram a surgir VCSs de modelo distribuído, chamados de **Distributed Version Control Systems** (DVCS). Diversos softwares surgiram como Darcs, BitKeeper, Mercurial, Bazaar, Monotone e, sobretudo, o Git (nosso principal assunto). 
 
 Os DVCSs resolviam muitos dos problemas que assolavam os CVCSs. Nos DVCSs, o repositório inteiro estava no computador local do usuário, tornando-os mais adequados para grandes projetos com múltiplos desenvolvedores independentes e essenciais para a comunidade open source. Isso also tornava os DVCSs menos dependentes de rede. Enquanto nos CVCSs as alterações eram rastreadas apenas quando enviadas (committed) ao servidor, nos DVCSs elas podiam ser rastreadas localmente, permitindo o versionamento de "rascunhos" sem precisar publicá-los para outros.
+
+{{< image src="/images/DVCS.webp"caption="DVCSs" >}}
 
 ## Uma breve história do Git
 
@@ -155,6 +159,10 @@ Isso fez com que a comunidade que desenvolvia o Linux (e especialmente Linus Tor
 - Ser escalável
 
 E assim, em 2005, nasceu o Git que, com o tempo, evoluiu para ser fácil de usar e ainda reter as qualidades acima, tornando-se, nos dias atuais, parte essencial da maioria dos projetos de software no mundo.
+
+Abaixo está uma Tech Talk no Google onde Linus Torvalds fala sobre o Git.
+
+{{< youtube 4XpnKHJAok8 >}}
 
 ## Conclusão
 
