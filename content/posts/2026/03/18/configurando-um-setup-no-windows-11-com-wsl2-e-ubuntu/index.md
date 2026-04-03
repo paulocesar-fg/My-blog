@@ -257,6 +257,18 @@ Agora que o Docker está instalado, abra o Docker Desktop no Windows e vá em `S
 
 {{< image src="images/docker-desktop-wsl-integration.webp" caption="Integrando o Docker Desktop com WSL">}}
 
+Mas antes de usar docker vamos configurar as permissões, para que assim não precisemos passar `sudo` junto com os comandos do docker. 
+
+Por sorte fazer isso é simples, e está tudo documentado na documentação oficial.
+
+```zsh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Para verificar se a instalação foi bem sucedida execute `docker ps`.
+
 ### Conclusão 
 
 Depois de umas boas horas configurando esse setup, creio que cheguei em um ponto onde configurei uma distro linux utilizável. É claro que posteriormente irei fazer novas configurações, mas a base desse setup foi montada.
