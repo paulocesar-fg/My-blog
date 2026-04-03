@@ -161,7 +161,7 @@ Voltando ao Windows Terminal, faça `CTRL + ,` para abrir as configurações. Na
 Volte ao Powerlevel10k e veja se os ícones aparecem corretamente. Faça sua configuração como achar melhor. Caso queira reconfigurar, basta executar o comando:
 
 ```zsh
-p10k --configure
+p10k configure
 ```
 
 #### Plugin Zsh auto-suggestions
