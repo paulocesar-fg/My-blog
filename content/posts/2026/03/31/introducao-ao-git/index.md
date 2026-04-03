@@ -12,7 +12,7 @@ lightgallery: true
 
 ---
 
-Olá, meu nome é Paulo César! Neste post, quero explicar o funcionamento básico do Git e mostrar alguns comandos essenciais. 
+Olá, meu nome é Paulo César! Neste post, quero explicar o funcionamento básico do Git, quando disse tutorial não me atenho a simplesmente  explicar os comandos, mas sim entender como o básico sobre como o Git funciona e a relação disso com cada comando.
 
 Basicamente, o Git é um sistema de controle de versionamento distribuído (DVCS) que, atualmente, é utilizado em larga escala no desenvolvimento de software.
 
@@ -196,21 +196,7 @@ git add file1.txt
 git commit -m "second commit"
 ``` 
 
-Agora rodamos o comando `git log` para ver o histórico de commits
-
-```stdout
-commit 4f4b2cd1e7977cfc893849a6e1dd966186475ccf
-Author: paulocesar-fg <pcfggama@gmail.com>
-Date:   Wed Apr 1 21:03:48 2026 -0300
-
-    second commit
-
-commit dd2cde62a5bca4a43d8f454a4ffa375b6d116da9
-Author: paulocesar-fg <pcfggama@gmail.com>
-Date:   Wed Apr 1 20:32:10 2026 -0300
-
-    first commit
-```
+Agora rodamos o comando `git log` para ver o histórico de commits.
 
 Se quiser algo mais resumido(em uma linha) basta adicionar a opção `--oneline` ao git log.
 
@@ -235,16 +221,161 @@ Algumas obserções:
 
 3. Expressões regulares simples usadas em ambiente shell, como *, [], ? podem ser utilizadas.
 
-## Ramificações
+## Ramificações (Branches)
 Praticamente todos os VCSs possuem alguma forma de suporte a ramificações(Branches). As Branches possibilitam trabalhar no projeto sem alterar a linha principal.
 
 Alguns VCSs vaziam isso de formas terríveis, alguns exigem que façamos uma nova cópia do código-fonte , o que pode ser horrível em projetos grandes.
 
 Por sorte, o modelo de ramificações do Git é um "recurso matador" e certamente diferencia o git em relação a seus concorrentes. 
 
-Como dito anteriormente o Git salva suas alterações como uma série de deltas(diferenças), mas sim como uma série de  *snapshots*.
+Como dito anteriormente, o Git não armazena alterações como deltas (diferenças entre arquivos). Em vez disso, ele registra o estado completo do projeto em determinados momentos, por meio de snapshots.
 
-Quando fazemos `git commit` o Git armazena um objeto de commit que possui um ponteiro para o snapshot do conteúdo que estava no Index. Este objeto contém o nome do autor, e-maili, e a mensação de commit
+Quando executamos um git commit, o Git cria um objeto de commit que contém um ponteiro para o snapshot para o conteúdo do Index. Além disso esse objeto guarda alguns meta dados como nome do autor, e-mail, a mensagem de commit e ponteiros para o commit ou commits(seu pai ou pais) que vieram antes desse commit.
+
+O primeiro commit feito não possui pai; commits normais possuem um pai; e commits mesclados de vários pais resultam de uma fusão de dois ou mais branches.
+
+Em resumo, você pode pensar em um commit no Git forma uma estutura encadeada(como uma linked list), onde cada commit aponta para seu(s) pai(s), criando o histórico do projeto.
+
+Esse modelo permite que o Git crie branches de forma eficiente, já que uma branch é basicamente um **ponteiro para um commit específico**, e não uma copia completa dos arquivos.
+
+Vamos ver isso na prática, imagine que criamos um repositório qualquer e que nele fizemos 3 commits, e possuimos inicialmente apenas a branch main.
+
+{{< image src="/images/git-branch.webp" caption="Um branch e seu histórico de commits">}}
+
+### Criando ramificações
+
+Agora vamos criar um novo branch chamado testing, para isso basta executar
+
+```zsh
+git branch testing"
+```
+
+Esse comando cria um novo branch no commit em que estamos atualmente. 
+
+Antes de prosseguir precisamos responder uma pergunta fundamental: como o Git sabe em qual branch estamos atualmente ? 
+
+A resposta é simples, ele mantém um **ponteiro especial** chamado `HEAD`. No git, o `HEAD` é um ponteiro para o branch atual em que estamos. Neste caso ainda estamos na branch *main*, você pode confirmar isso facilmente executando o comando `git branch`.
+
+Basicamente, o comando `git branch testing` apenas *criou* um novo branch -- ele não mudou para aquele branch.
+
+### Alternando entre Branches
+
+Para mudar para outra branch, isto é, fazer o `HEAD` apontar para ela, basta executar `git checkout nome-da-branch` ou `git switch nome-da-branch`
+
+```zsh
+git checkout testing
+``` 
+ou 
+
+```zsh
+git switch testing
+```  
+
+{{< image src="/images/git-branch-2.webp" caption="HEAD apontando para o branch Testing" >}}
+
+**PS:** Se quiser criar uma branch e simultaneamente mudar para ela execute o comando `git checkout -b nome-da-branch`.
+
+*PS:* É possível ver isso executando o comando `git log --decorate` que mostra onde os ponteiros do branch estão apontando.
+
+Agora que estamos no branch testing vamos fazer um novo commit
+
+```
+vim test.txt
+git commit -a -m "made a change"
+```
+
+{{< image src="/images/git-branch-3.webp" caption="O branch do HEAD avança quando um commit é feito ">}}
+
+Algo interessante ocorre, perceba que enquanto o branch `testing` avançou, o branch `main` ainda aponta para o commit em que estavamos quando executou `git chekout` para alternar entre os branches. 
+
+Vamos retornar ao branch `main`:
+
+```zsh
+git checkout main
+```
+
+{{< image src="/images/git-branch-4.webp" caption="HEAD se move ao fazer o checkout">}}
+
+Esse comando moveu o ponteiro de HEAD de volta para apontar para o branch `main` , e reverteu os arquivos no Working directory(diretório de trabalho) de voplta ao snapshot para o qual `main` aponta. 
+
+Isso significa que as alterações feitas a partir deste ponto vão divergir. 
+
+Agora vamos fazer um novo commit em main
+
+```zsh
+vim file.txt
+git commit -a -m "made a change"
+```
+
+Agora o histórico do projeto se divergiu, uma vez que criamos um branch novo (testing), fizemos mudanças nele, e depois voltamos para o branch principal e fizemos outras mudanças.
+
+{{< image src="/images/git-branch-5.webp" caption="Histórico de commits">}}
+
+Ambas as mudanças são isoladas em branches separados, contudo, sempre é possível alternar entre os branchs e **mesclá-los** quando estiver pronto.
+
+**PS**: Se você executar `git log --oneline --decorate --graph --all`, ele mostrará o histórico de seus commits, exibindo onde estão seus ponteiros de branch e como o seu histórico divergiu.
+
+### Mesclando Branches (Merge)
+
+Imagine que temos um projeto e que já haja alguns commits no branch `main`.
+
+{{< image src="/images/git-merge.webp" caption="Um simples histórico de commits">}}
+
+Agora vamos criar um novo branch com nome `branch1` e mudar para simultaneamente executando
+
+```zsh
+git checkout -b branch1
+```
+
+E nessa branch vamos fazer um novo commit
+
+{{< image src="/images/git-merge-1.webp" caption="Criando um novo branch e fazendo um commit">}}
+
+Além dessa branch, vamos criar outra com o criativo nome `branch2`
+
+```zsh
+git checkout -b branch2
+```
+
+E nessa branch vamos fazer um commit 
+
+
+{{< image src="/images/git-merge-2.webp" caption="Histórico se divergiu entre as branchs, mas ambas se baseam em main">}}
+
+Agora vamos mesclar a `branch2` a `main`, para fazer isso o processo é simples.
+
+Primeiro, mude para branch principal, ou seja `main` 
+
+```zsh
+git checkout main
+```
+
+E logo em seguida execute o comando `git merge nome-da-branch-para-mesclar`
+
+```zsh
+git merge branch2
+```
+
+**PS:** Talvez você note a expressão "fast-forward" nesse merge. já que o branch `branch2` que foi mesclado aponta para `C4` que está diretamente à frente do commit `C2` no qual main estava, então o Git simplesmente move o ponteiro para a frente.
+
+Agora, a  alteração está no snapshot do commmit para o qual o branch master aponta.
+
+{{< image src="/images/git-merge-3.webp" caption="Criando um novo branch e fazendo um commit">}}
+
+Sendo assim, a branch `branch2` não é mais necessária e, portanto, podemos exclui-la executando
+
+```zsh
+git branch -d branch2
+```
+
+Vamos retornar a branch `branch1` e continuar o trabalho fazendo mais um commit.
+
+{{< image src="/images/git-merge-4.webp" caption="Continuando o trabalho no branch1">}}
+
+É importante esclarecer que as alterações feitas em `branch2` não estão contidas nos arquivos do `branch1`. Caso você precise dessas alterações, você pode fazer o merge do branch `main` no branch `branch1` executando git merge `main`, ou você pode esperar para integrar essas alterações até que você decida mesclar o branch `branch1` de volta para `main` mais tarde.
+
+
+
 
 ## Repositório remoto e a diferença de Git e Github
 
