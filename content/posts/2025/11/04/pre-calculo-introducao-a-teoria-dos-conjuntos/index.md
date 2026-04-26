@@ -21,6 +21,12 @@ Para aqueles que querem uma abordagem mais rigorosa e completa, recomendo a leit
 
 Para definir rigorosamente o conceito de conjunto, seria necessária uma abordagem axiomática que foge do nível introdutório deste post. Portanto, para fins de introdução, usaremos a seguinte ideia intuitiva:
 
+```js
+console.log("hello");
+function
+```
+
+
 > Conjuntos são coleções de objetos. Os objetos que formam um conjunto são os seus elementos.
 
 Usualmente, representa-se os conjuntos por letras maiúsculas e os elementos por letras minúsculas. Sendo assim, para indicar que o objeto **a** é um elemento do conjunto **A**, escreve-se:

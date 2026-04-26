@@ -1,3 +1,18 @@
 /public/
 /resources/
 /.hugo_build.lock
+
+# Emacs autosave / backup
+*~
+\#*\#
+.\#*
+
+# Vim swap (caso use editor misto)
+*.swp
+*.swo
+
+# Emacs lock files
+.\#*
+
+# Hugo / Markdown editor backups
+*.md~
