@@ -10,6 +10,11 @@ theme = "DoIt"
 
 summaryLength = 10
 
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
 [params]
   # DoIt theme version
   version = "0.2.X"
@@ -88,7 +93,7 @@ summaryLength = 10
   [params.search]
       enable = true
       # type of search engine ["lunr", "algolia"]
-      type = "lunr"
+      type = "fuse"
       # max index length of the chunked content
       contentLength = 1000
       # placeholder of the search bar
@@ -96,15 +101,28 @@ summaryLength = 10
       # LoveIt NEW | 0.2.1 max number of results length
       maxResultLength = 10
       # LoveIt NEW | 0.2.3 snippet length of the result
-      snippetLength = 20
+      snippetLength = 30
       # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
       highlightTag = "em"
       # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
       absoluteURL = false
       [params.search.algolia]
+       
         index = ""
         appID = ""
         searchKey = ""
+       [params.search.fuse]
+    # DoIt NEW | 0.2.12 https://fusejs.io/api/options.html
+        isCaseSensitive = false
+        minMatchCharLength = 2
+        findAllMatches = false
+        location = 0
+        threshold = 0.3
+        distance = 100
+        ignoreLocation = false
+        useExtendedSearch = false
+        ignoreFieldNorm = false
+
 
     [params.app]
       # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -171,7 +189,7 @@ summaryLength = 10
           
   [params.home]
     # DoIt NEW | 0.2.0 amount of RSS pages
-    rss = 10
+    rsslimit = 20
     # Home page profile
     [params.home.profile]
       enable = true
@@ -197,7 +215,7 @@ summaryLength = 10
     [params.home.posts]
       enable = true
       # special amount of posts in each home posts page
-      paginate = 6
+      paginate = 10
       # DoIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
       # default behavior when you don't set "hiddenFromHomePage" in front matter
       defaultHiddenFromHomePage = false
